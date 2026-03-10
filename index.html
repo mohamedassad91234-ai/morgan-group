@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan Group International</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0b1f38; 
+            --accent-color: #d4af37;  
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--light-bg); color: var(--text-color); line-height: 1.8; overflow-x: hidden; }
+
+        nav { background-color: var(--primary-color); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        nav .logo { color: var(--accent-color); font-size: 24px; font-weight: 800; text-decoration: none; letter-spacing: 1px; }
+
+        .hero { height: 100vh; background: linear-gradient(rgba(11, 31, 56, 0.8), rgba(11, 31, 56, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 0 20px; margin-top: 60px; }
+        .hero h1 { font-size: 4rem; color: var(--accent-color); margin-bottom: 20px; }
+        .hero p { font-size: 1.5rem; max-width: 800px; margin-bottom: 30px; }
+        
+        /* تنسيق الأزرار الجديدة في الهيرو */
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .hero-btn { padding: 15px 35px; text-decoration: none; font-size: 1.2rem; font-weight: bold; border-radius: 5px; transition: 0.3s; cursor: pointer; text-align: center; }
+        
+        /* الزرار الأول (الأساسي) */
+        .btn-primary { background-color: var(--accent-color); color: var(--primary-color); border: 2px solid var(--accent-color); }
+        .btn-primary:hover { background-color: var(--white); border-color: var(--white); transform: translateY(-5px); }
+        
+        /* الزرار الثاني (الشفاف) */
+        .btn-secondary { background-color: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); }
+        .btn-secondary:hover { background-color: var(--accent-color); color: var(--primary-color); transform: translateY(-5px); }
+
+        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; width: 80px; height: 4px; background-color: var(--accent-color); display: block; margin: 10px auto; border-radius: 2px; }
+
+        .about-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .box { background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid var(--accent-color); }
+        .box:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .box h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 20px; }
+
+        /* قسم القيادة الإدارية */
+        .leadership-container { display: flex; flex-direction: column; gap: 30px; }
+        .leader-card { background: var(--white); display: flex; align-items: center; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: 0.4s; border-right: 5px solid var(--accent-color); }
+        .leader-card:hover { transform: scale(1.02); }
+        .leader-img { width: 300px; height: 300px; object-fit: cover; }
+        .leader-info { padding: 40px; flex: 1; }
+        .leader-info h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 5px; }
+        .leader-info h4 { color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 600; }
+        .leader-info p { color: #555; font-size: 1.1rem; line-height: 1.8; text-align: justify; }
+
+        /* قطاعات الشركة */
+        .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .sectors-grid a { text-decoration: none; color: inherit; display: block; }
+        .sector-card { background: var(--white); padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; z-index: 1; height: 100%; }
+        .sector-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0; background-color: var(--primary-color); transition: all 0.4s ease; z-index: -1; }
+        .sector-card:hover::before { height: 100%; }
+        .sector-card:hover { transform: translateY(-10px); color: var(--white); }
+        .sector-card:hover h4, .sector-card:hover i { color: var(--white); }
+        .sector-card i { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; transition: 0.4s; }
+        .sector-card h4 { font-size: 1.4rem; color: var(--primary-color); transition: 0.4s; }
+
+        footer { background-color: var(--primary-color); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 50px; }
+
+        /* التجاوب مع الموبايل */
+        @media (max-width: 768px) {
+            .about-vision { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; width: 100%; padding: 0 20px; }
+            .hero-btn { width: 100%; }
+            .leader-card { flex-direction: column; text-align: center; }
+            .leader-img { width: 100%; height: 250px; }
+            .leader-card { border-right: none; border-bottom: 5px solid var(--accent-color); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav data-aos="fade-down" data-aos-duration="1000">
+        <a href="index.html" class="logo">Morgan Group</a>
+    </nav>
+
+    <div class="hero">
+        <h1 data-aos="zoom-in" data-aos-duration="1500">Morgan Group International</h1>
+        <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+            مجموعة أعمال واستثمارات متعددة الأنشطة، تبني كياناً اقتصادياً متكاملاً يمتد بنشاطه محلياً وإقليمياً ودولياً.
+        </p>
+        
+        <div class="hero-buttons" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+            <a href="#sectors" class="hero-btn btn-primary">اكتشف قطاعاتنا</a>
+            <a href="#leadership" class="hero-btn btn-secondary">الإدارة التنفيذية</a>
+        </div>
+    </div>
+
+    <section class="about-vision">
+        <div class="box" data-aos="fade-left">
+            <h3>من نحن</h3>
+            <p>
+                نعمل في عدد من القطاعات الخدمية والاستثمارية، ونسعى إلى بناء كيان اقتصادي متكامل يمتد بنشاطه داخل مصر وفي الأسواق الإقليمية والدولية. نعتمد على التنوع في القطاعات والتوسع المستمر في الأسواق.
+            </p>
+        </div>
+        <div class="box" data-aos="fade-right">
+            <h3>رؤيتنا</h3>
+            <p>
+                أن نكون من المجموعات الاستثمارية الرائدة في المنطقة، من خلال تقديم خدمات متنوعة ومشروعات ناجحة والتوسع المستمر في الأسواق المحلية والدولية.
+            </p>
+        </div>
+    </section>
+
+    <section id="leadership" style="background-color: var(--white); border-radius: 20px; padding: 60px 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.03);">
+        <h2 class="section-title" data-aos="fade-up">القيادة الإدارية</h2>
+        
+        <div class="leadership-container">
+            
+            <div class="leader-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="C:\Users\mohamed\Desktop\New folder (9)\1.jpg" alt="الرئيس التنفيذي" class="leader-img">
+                <div class="leader-info">
+                    <h3>محمود خليل</h3>
+                    <h4>الرئيس التنفيذي ورئيس مجلس الإدارة</h4>
+                    <p>بقيادة استثنائية ورؤية ثاقبة، يقود مسيرة Morgan Group نحو آفاق عالمية. بخبرة عميقة في هيكلة الاستثمارات وإدارة الكيانات الاقتصادية الكبرى، يمثل حجر الأساس في رسم استراتيجيتنا التوسعية وبناء شراكات قوية تضمن استدامة النجاح والريادة في مختلف القطاعات.</p>
+                </div>
+            </div>
+
+            <div class="leader-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="C:\Users\mohamed\Desktop\New folder (9)\2.jpg" alt="نائب العضو المنتدب" class="leader-img">
+                <div class="leader-info">
+                    <h3>محمد خليل</h3>
+                    <h4>نائب العضو المنتدب</h4>
+                    <p>الدينامو المحرك للعمليات التنفيذية داخل المجموعة. يتميز بقدرة فائقة على تحويل الرؤى الاستراتيجية إلى واقع ملموس، مع التركيز الصارم على الكفاءة التشغيلية والابتكار، مما يضمن تفوق المجموعة وتقديم أعلى معايير الجودة والاحترافية في جميع خدماتنا.</p>
+                </div>
+            </div>
+
+            <div class="leader-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="C:\Users\mohamed\Desktop\New folder (9)\3.jpg" alt="مساعد العضو المنتدب" class="leader-img">
+                <div class="leader-info">
+                    <h3>ابراهيم خليل</h3>
+                    <h4>مساعد العضو المنتدب للاستثمار والموارد</h4>
+                    <p>العقل المدبر للنمو المالي والاستراتيجي. يمتلك حساً استثمارياً فريداً وقدرة على اقتناص الفرص الواعدة في الأسواق المحلية والدولية. يدير موارد المجموعة بكفاءة عالية لضمان تعظيم العوائد، وتقليل المخاطر، وتحقيق الاستدامة المالية لجميع مشاريعنا التوسعية.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sectors">
+        <h2 class="section-title" data-aos="fade-up">قطاعاتنا</h2>
+        <div class="sectors-grid">
+            <a href="security.html" data-aos="fade-up" data-aos-delay="100">
+                <div class="sector-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>قطاع الأمن والحراسات الخاصة</h4>
+                </div>
+            </a>
+            <a href="hospitality.html" data-aos="fade-up" data-aos-delay="200">
+                <div class="sector-card">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <h4>قطاع الضيافة وإدارة الكافيهات</h4>
+                </div>
+            </a>
+            <a href="beauty.html" data-aos="fade-up" data-aos-delay="300">
+                <div class="sector-card">
+                    <i class="fa-solid fa-scissors"></i>
+                    <h4>قطاع العناية الشخصية والتجميل</h4>
+                </div>
+            </a>
+            <a href="realestate.html" data-aos="fade-up" data-aos-delay="400">
+                <div class="sector-card">
+                    <i class="fa-solid fa-building"></i>
+                    <h4>قطاع الاستثمار العقاري والزراعي</h4>
+                </div>
+            </a>
+            <a href="retail.html" data-aos="fade-up" data-aos-delay="500">
+                <div class="sector-card">
+                    <i class="fa-solid fa-store"></i>
+                    <h4>إدارة وتطوير المحلات التجارية</h4>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Morgan Group International. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 100 });
+    </script>
+
+</body>
+</html>

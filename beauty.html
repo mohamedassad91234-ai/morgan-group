@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قطاع العناية الشخصية - Morgan Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root { --primary-color: #0b1f38; --accent-color: #d4af37; --light-bg: #f8f9fa; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--light-bg); line-height: 1.8; }
+        nav { background-color: var(--primary-color); padding: 20px 50px; display: flex; justify-content: space-between; }
+        nav .logo { color: var(--accent-color); font-size: 24px; font-weight: 800; text-decoration: none; }
+        .back-btn { color: var(--white); text-decoration: none; } .back-btn:hover { color: var(--accent-color); }
+        .sector-header { background: linear-gradient(rgba(11,31,56,0.8), rgba(11,31,56,0.9)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2000&auto=format&fit=crop') center/cover; padding: 100px 20px; text-align: center; color: var(--white); }
+        .sector-header h1 { color: var(--accent-color); font-size: 3rem; margin-bottom: 15px; }
+        .content-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .content-section p { font-size: 1.2rem; margin-bottom: 40px; text-align: justify; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; }
+        .gallery img:hover { transform: scale(1.03); }
+        footer { background-color: var(--primary-color); color: var(--white); text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Morgan Group</a>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> رجوع للرئيسية</a>
+    </nav>
+    <div class="sector-header" data-aos="fade-down">
+        <h1>قطاع العناية الشخصية والتجميل</h1>
+        <p>صالونات حلاقة حديثة تقدم خدمات متطورة تلبي احتياجات العملاء.</p>
+    </div>
+    <div class="content-section">
+        <p data-aos="fade-up">نهتم بأدق التفاصيل في قطاع العناية الشخصية، حيث ندير صالونات حلاقة وتجميل مجهزة بأحدث التقنيات وأفضل المنتجات العالمية. فريقنا من المحترفين يسعى دائماً لتقديم خدمات فائقة الجودة تضمن رضا عملائنا وتمنحهم الثقة والمظهر الأنيق.</p>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop" data-aos="zoom-in" data-aos-delay="100">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop" data-aos="zoom-in" data-aos-delay="200">
+            <img src="C:\Users\mohamed\Desktop\New folder (9)\4.jpg" data-aos="zoom-in" data-aos-delay="300">
+        </div>
+    </div>
+    <footer><p>&copy; 2026 Morgan Group International.</p></footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50 });</script>
+</body>
+</html>
